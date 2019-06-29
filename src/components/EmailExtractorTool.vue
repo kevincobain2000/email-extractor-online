@@ -71,7 +71,7 @@ export default {
     return {
       error: null,
       limit: 1000,
-      urlText: 'http://www.mit.edu/',
+      urlText: 'https://www.jaist.ac.jp',
       urls: [],
       crawledUrls: [],
       urlEmails: {},
