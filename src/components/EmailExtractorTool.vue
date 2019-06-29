@@ -10,8 +10,9 @@
     </p>
     <h3>Input url</h3>
     <br>
-    <input @keydown="resetResult" v-model="urlText" placeholder="Enter your url">
-    &nbsp; <button v-on:click="extractEmails" class="btn btn-sm btn-primary text-white" type="button">Extract Emails</button>
+    <form @submit.prevent="extractEmails">
+      <input @keydown="resetResult" v-model="urlText" placeholder="Enter your url">
+      &nbsp; <button class="btn btn-sm btn-primary text-white" type="submit">Extract Emails</button>
 
     <p>
       <span v-if="error" class="error">{{error}}</span>
@@ -30,6 +31,7 @@
           <option>5000</option>
         </select>
     </p>
+    </form>
     <table v-if="crawledUrls.length">
       <caption><strong>Results</strong></caption>
       <tbody>
@@ -70,7 +72,7 @@ export default {
   data() {
     return {
       error: null,
-      limit: 1000,
+      limit: 10,
       urlText: 'https://www.jaist.ac.jp',
       urls: [],
       crawledUrls: [],
